@@ -1,0 +1,27 @@
+# for the visual ref, the location is default and the scenario is as follows
+cs RC2022VisualReferee
+
+call Includes/Normal
+
+# all views are defined in another script
+call Includes/Views
+
+# switch off the game time
+dr debugDrawing3d:representation:GameInfo off
+dr debugDrawing3d:representation:TeamInfo off
+
+
+# add in the visual referee specific stuff
+vd representation:RefereeGesture
+vd module:RefereeGestureDetector:gesture 
+vd representation:WhistleProcessed
+vd representation:EnhancedKeyStates
+
+# dr debugDrawing3d:module:RefereeGestureDetector:referee 
+
+echo -- switch on the referee stick figure and side colours if you wish by executing the following line
+echo dr debugDrawing3d:module:RefereeGestureDetector:referee on
+echo
+echo -- to test the behaviour, modify the values in the module:RefereeGestureDetector:gesture data view.
+echo -- Then execute the following line
+echo dr module:RefereeGestureDetector:detectNow 

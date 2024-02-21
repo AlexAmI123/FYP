@@ -1,0 +1,7 @@
+# location and scenario for RE_Learning_Normal/PerceptOracle scenes
+
+# location
+# cl newLocation
+
+# scenario
+cs RECoroLearning

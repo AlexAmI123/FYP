@@ -1,0 +1,15 @@
+# set the location and scenario
+cl MULabSmallField2015
+cs Default
+
+call MUSmallField/inc/1vsInactives_MUSmallField
+call Includes/Normal
+
+# all views are defined in another script
+call Includes/Views
+
+# press any key to activate the joystick
+jc press 1 call Includes/Joystick
+jc press 2 call Includes/Joystick
+jc press 3 call Includes/Joystick
+jc press 4 call Includes/Joystick

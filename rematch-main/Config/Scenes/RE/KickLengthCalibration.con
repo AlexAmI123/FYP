@@ -1,0 +1,15 @@
+# for the visual ref, the location is default and the scenario is as follows
+cs REKickLengthCalibration
+
+call Includes/Normal
+
+# all views are defined in another script
+call Includes/Views
+
+# switch off the game time
+dr debugDrawing3d:representation:GameInfo off
+dr debugDrawing3d:representation:TeamInfo off
+
+
+# add in the visual referee specific stuff
+vd representation:EnhancedKeyStates
