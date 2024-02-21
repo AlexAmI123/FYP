@@ -153,3 +153,7 @@ void JPEGImage::reg()
   REG(timestamp);
   REG(size);
 }
+
+const std::vector<unsigned char>& JPEGImage::getAllocator() const {
+    return allocator;
+}

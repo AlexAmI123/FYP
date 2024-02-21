@@ -21,6 +21,8 @@ private:
   std::vector<unsigned char> allocator; /**< The data storage */
 
 public:
+  const std::vector<unsigned char>& getAllocator() const;
+
   JPEGImage() = default;
 
   /**

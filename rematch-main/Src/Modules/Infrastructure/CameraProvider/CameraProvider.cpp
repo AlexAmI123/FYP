@@ -28,7 +28,9 @@ bool CameraProvider::resetPending = false;
 #endif
 
 CameraProvider::CameraProvider()
-  : whichCamera(Thread::getCurrentThreadName() == "Upper" ?  CameraInfo::upper : CameraInfo::lower),
+  : tcpServerUpper(8081), // Port for the upper camera images
+    tcpServerLower(8082), // Port for the lower camera images
+    whichCamera(Thread::getCurrentThreadName() == "Upper" ?  CameraInfo::upper : CameraInfo::lower),
     cameraInfo(whichCamera)
 {
   VERIFY(readCameraIntrinsics());
@@ -36,6 +38,9 @@ CameraProvider::CameraProvider()
 
   theInstance = this;
   setupCamera();
+
+  tcpServerUpper.start();
+  tcpServerLower.start();
 
 #ifdef CAMERA_INCLUDED
   headName = Global::getSettings().headName.c_str();
@@ -52,6 +57,8 @@ CameraProvider::~CameraProvider()
   thread.announceStop();
   takeNextImage.post();
   thread.stop();
+  tcpServerUpper.stop();
+  tcpServerLower.stop();
 
   if(camera)
     delete camera;
@@ -115,6 +122,15 @@ void CameraProvider::update(CameraImage& theCameraImage)
 void CameraProvider::update(JPEGImage& jpegImage)
 {
   jpegImage = theCameraImage;
+
+  // Retrieve the JPEG data
+  const std::vector<unsigned char>& jpegData = jpegImage.getAllocator();
+
+  // Determine which TCP server to use based on whichCamera
+  TCPServer& server = (whichCamera == CameraInfo::upper) ? tcpServerUpper : tcpServerLower;
+  
+  // Send the JPEG data over TCP
+  server.sendToAll(jpegData);
 }
 
 void CameraProvider::update(CameraInfo& cameraInfo)

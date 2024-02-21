@@ -11,6 +11,7 @@
 
 #pragma once
 
+#include "TCPServer.h
 #include "Platform/Camera.h"
 #include "Platform/Semaphore.h"
 #include "Platform/Thread.h"
@@ -54,6 +55,8 @@ class CameraProvider : public CameraProviderBase
 {
   static thread_local CameraProvider* theInstance; /**< Points to the only instance of this class in this thread or is 0 if there is none. */
 
+  TCPServer tcpServerUpper; 
+  TCPServer tcpServerLower;
   CameraInfo::Camera whichCamera;
   NaoCamera* camera = nullptr;
   CameraInfo cameraInfo;
