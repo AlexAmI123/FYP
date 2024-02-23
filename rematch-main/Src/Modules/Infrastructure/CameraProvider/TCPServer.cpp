@@ -1,15 +1,15 @@
-#include "TcpServer.h"
+#include "TCPServer.h"
 #include <sys/socket.h>
 #include <unistd.h>
 #include <cstring>
 
-TcpServer::TcpServer(int port) : port(port), serverFd(-1), clientFd(-1), running(false) {}
+TCPServer::TCPServer(int port) : port(port), serverFd(-1), clientFd(-1), running(false) {}
 
-TcpServer::~TcpServer() {
+TCPServer::~TCPServer() {
     stop();
 }
 
-void TcpServer::start() {
+void TCPServer::start() {
     serverFd = socket(AF_INET, SOCK_STREAM, 0);
     sockaddr_in address{};
     address.sin_family = AF_INET;
@@ -20,10 +20,10 @@ void TcpServer::start() {
     listen(serverFd, 1);
 
     running = true;
-    acceptThread = std::thread(&TcpServer::acceptConnections, this);
+    acceptThread = std::thread(&TCPServer::acceptConnections, this);
 }
 
-void TcpServer::stop() {
+void TCPServer::stop() {
     running = false;
     if (acceptThread.joinable()) {
         acceptThread.join();
@@ -38,13 +38,13 @@ void TcpServer::stop() {
     }
 }
 
-void TcpServer::send(const std::vector<unsigned char>& data) {
+void TCPServer::send(const std::vector<unsigned char>& data) {
     if (clientFd != -1) {
         ::send(clientFd, data.data(), data.size(), 0);
     }
 }
 
-void TcpServer::acceptConnections() {
+void TCPServer::acceptConnections() {
     while (running) {
         clientFd = accept(serverFd, nullptr, nullptr);
         if (clientFd < 0) {
@@ -52,4 +52,3 @@ void TcpServer::acceptConnections() {
         }
     }
 }
--

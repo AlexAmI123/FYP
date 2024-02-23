@@ -3,10 +3,10 @@
 #include <string>
 #include <thread>
 
-class TcpServer {
+class TCPServer {
 public:
-    TcpServer(int port);
-    ~TcpServer();
+    TCPServer(int port);
+    ~TCPServer();
     void start();
     void stop();
     void send(const std::vector<unsigned char>& data);

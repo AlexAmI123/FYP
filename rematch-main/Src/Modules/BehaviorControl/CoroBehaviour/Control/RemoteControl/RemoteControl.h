@@ -6,7 +6,7 @@
 
 #pragma once
 
-#include "TcpListener.h"
+#include "TCPListener.h"
 #include "Modules/BehaviorControl/CoroBehaviour/CoroBehaviourCommon.h"
 #include "Modules/BehaviorControl/CoroBehaviour/Skills/CommonSkills.h"
 #include "Modules/BehaviorControl/CoroBehaviour/Skills/SoundSkills.h"
@@ -16,14 +16,14 @@ namespace CoroBehaviour
 {
     namespace RE2023
     {
-        CRBEHAVIOUR(RemooteControl)
+        CRBEHAVIOUR(RemoteControl)
         {
             CRBEHAVIOUR_INIT(RemoteControl) {
                 // Start the listener
                 tcpListener.startListening(8080);
             }
 
-            void RemoteControl::operator()(void) {
+            void operator()(void) {
             std::string command;
             CRBEHAVIOUR_BEGIN();
 
@@ -43,7 +43,7 @@ namespace CoroBehaviour
                 CR_YIELD();
             }
 
-            CRBEHAVIOUR_END();
+            // CRBEHAVIOUR_END();
             }
 
             private:
@@ -51,7 +51,7 @@ namespace CoroBehaviour
             // {,
             // (unsigned)(5000) walkForwardMs,
             // });
-            TCPListener tcpListener  {env};
+            TCPListener tcpListener;
             CommonSkills commonSkills  {env};
             HeadSkills headSkills {env};
             MotionSkills motionSkills {env};

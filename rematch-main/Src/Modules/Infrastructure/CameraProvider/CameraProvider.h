@@ -11,7 +11,7 @@
 
 #pragma once
 
-#include "TCPServer.h
+#include "TCPServer.h"
 #include "Platform/Camera.h"
 #include "Platform/Semaphore.h"
 #include "Platform/Thread.h"

@@ -130,7 +130,7 @@ void CameraProvider::update(JPEGImage& jpegImage)
   TCPServer& server = (whichCamera == CameraInfo::upper) ? tcpServerUpper : tcpServerLower;
   
   // Send the JPEG data over TCP
-  server.sendToAll(jpegData);
+  server.send(jpegData);
 }
 
 void CameraProvider::update(CameraInfo& cameraInfo)

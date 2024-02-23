@@ -1,23 +1,23 @@
-#include "TcpListener.h"
+#include "TCPListener.h"
 #include <netinet/in.h>
 #include <cstring>
 #include <unistd.h>
 #include <iostream>
 
-TcpListener::TcpListener() : listenThread(nullptr) {}
+TCPListener::TCPListener() : listenThread(nullptr) {}
 
-TcpListener::~TcpListener() {
+TCPListener::~TCPListener() {
     if (listenThread && listenThread->joinable()) {
         listenThread->join();
     }
     delete listenThread;
 }
 
-void TcpListener::startListening(int port) {
+void TCPListener::startListening(int port) {
     listenThread = new std::thread(listenerThread, this, port);
 }
 
-void TcpListener::listenerThread(TcpListener* listener, int port) {
+void TCPListener::listenerThread(TCPListener* listener, int port) {
     int server_fd, client_socket;
     struct sockaddr_in address;
     int opt = 1;
@@ -61,12 +61,12 @@ void TcpListener::listenerThread(TcpListener* listener, int port) {
     close(server_fd);
 }
 
-void TcpListener::enqueueCommand(const std::string& command) {
+void TCPListener::enqueueCommand(const std::string& command) {
     std::lock_guard<std::mutex> lock(commandQueueMutex);
     commandQueue.push(command);
 }
 
-bool TcpListener::dequeueCommand(std::string& command) {
+bool TCPListener::dequeueCommand(std::string& command) {
     std::lock_guard<std::mutex> lock(commandQueueMutex);
     if (commandQueue.empty()) {
         return false;
