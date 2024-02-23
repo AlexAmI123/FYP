@@ -29,18 +29,23 @@ namespace CoroBehaviour
 
             while (true) {
                 if (tcpListener.dequeueCommand(command)) {
-                    // Process command
+                    // Process commands
                     if (command == "walk_forward") {
                         // Trigger walking forward
                         motionSkills.walkAtRelativeSpeed(Pose2f(0.f, 1.f, 0.f));
                     }
+                    // Trigger crab walking left
+                    // Trigger crab walking right
+                    // Trigger rotate clockwise
+                    // Trigger rotate anticlockwise
+                    // Trigger kick ball
+                    //etc
                     if (command == "end_remote") {
                         // End Remote control
                         break;
                     }
-                    // Handle other commands...
                 }
-                CR_YIELD();
+                CR_YIELD(); break;
             }
 
             // CRBEHAVIOUR_END();

@@ -34,7 +34,7 @@ func update_camera_feed(data, position):
 	if error == OK:
 		var texture = ImageTexture.new()
 		texture.create_from_image(image)
-		if position == "bottom":
-			$CameraFeedBottom.texture = texture
-		elif position == "top":
-			$CameraFeedTop.texture = texture
+		if position == "top":
+			$TopFeed.texture = texture
+		elif position == "bottom":
+			$BottomFeed.texture = texture

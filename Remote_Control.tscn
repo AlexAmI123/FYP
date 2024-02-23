@@ -22,6 +22,7 @@ offset_bottom = 20.0
 grow_vertical = 2
 
 [node name="BottomFeed" type="TextureRect" parent="Control"]
+layout_mode = 0
 offset_top = 43.0
 offset_right = 40.0
 offset_bottom = 83.0
