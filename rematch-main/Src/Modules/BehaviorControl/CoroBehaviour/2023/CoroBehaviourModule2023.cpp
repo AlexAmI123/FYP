@@ -21,7 +21,7 @@
 #include "Modules/BehaviorControl/CoroBehaviour/Skills/HeadSkills.h"
 
 // entry point behaviours that we can specify via a config file
-#include "Modules/BehaviorControl/CoroBehaviour/Control/RemoteControl/RemoteControl.h"
+#include "Modules/BehaviorControl/CoroBehaviour/Control/Learning/RemoteControl.h"
 #include "Modules/BehaviorControl/CoroBehaviour/Control/SoccerGameControl.h"
 #include "Modules/BehaviorControl/CoroBehaviour/Control/Standard/BasicSetState.h"
 #include "Modules/BehaviorControl/CoroBehaviour/Control/Standard/BasicReturnFromPenalized.h"
