@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://dnpscco36fy3w"]
+
+[ext_resource type="Script" path="res://Control.gd" id="1_ekm25"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_ekm25")
+
+[node name="TopFeed" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -20.0
+offset_right = 40.0
+offset_bottom = 20.0
+grow_vertical = 2
+
+[node name="BottomFeed" type="TextureRect" parent="Control"]
+offset_top = 43.0
+offset_right = 40.0
+offset_bottom = 83.0
