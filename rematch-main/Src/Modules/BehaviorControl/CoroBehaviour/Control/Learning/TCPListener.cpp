@@ -13,11 +13,11 @@ TCPListener::~TCPListener() {
     delete listenThread;
 }
 
-void TCPListener::startListening(int port) {
+void TCPListener::startListening(uint16_t port) {
     listenThread = new std::thread(listenerThread, this, port);
 }
 
-void TCPListener::listenerThread(TCPListener* listener, int port) {
+void TCPListener::listenerThread(TCPListener* listener, uint16_t port) {
     int server_fd, client_socket;
     struct sockaddr_in address;
     int opt = 1;

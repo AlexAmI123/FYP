@@ -8,11 +8,11 @@ class TCPListener {
 public:
     TCPListener();
     ~TCPListener();
-    void startListening(int port);
+    void startListening(uint16_t port);
     bool dequeueCommand(std::string& command);
 
 private:
-    static void listenerThread(TCPListener* listener, int port);
+    static void listenerThread(TCPListener* listener, uint16_t port);
     std::queue<std::string> commandQueue;
     std::mutex commandQueueMutex;
     std::thread* listenThread;

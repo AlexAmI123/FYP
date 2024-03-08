@@ -1,0 +1,3 @@
+# set the scenario
+call RELearning/inc/RE_learning_settings
+call Includes/PerceptOracle

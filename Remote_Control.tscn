@@ -1,28 +1,24 @@
-[gd_scene load_steps=2 format=3 uid="uid://dnpscco36fy3w"]
+[gd_scene load_steps=5 format=3 uid="uid://dnpscco36fy3w"]
 
-[ext_resource type="Script" path="res://Control.gd" id="1_ekm25"]
+[ext_resource type="Script" path="res://Remote_Control.gd" id="1_3h85n"]
+[ext_resource type="Script" path="res://CameraFeedTop.gd" id="1_xww07"]
+[ext_resource type="Script" path="res://CameraFeedBottom.gd" id="2_tg2fx"]
+[ext_resource type="Script" path="res://TCPSender.gd" id="3_vcq6s"]
 
-[node name="Node3D" type="Node3D"]
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_3h85n")
 
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
+[node name="CameraFeedTop" type="TextureRect" parent="."]
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("1_ekm25")
+script = ExtResource("1_xww07")
+metadata/_edit_use_anchors_ = true
 
-[node name="TopFeed" type="TextureRect" parent="Control"]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = -20.0
+[node name="CameraFeedBottom" type="TextureRect" parent="."]
 offset_right = 40.0
-offset_bottom = 20.0
-grow_vertical = 2
+offset_bottom = 40.0
+script = ExtResource("2_tg2fx")
+metadata/_edit_use_anchors_ = true
 
-[node name="BottomFeed" type="TextureRect" parent="Control"]
-layout_mode = 0
-offset_top = 43.0
-offset_right = 40.0
-offset_bottom = 83.0
+[node name="TCPSender" type="Node" parent="."]
+script = ExtResource("3_vcq6s")

@@ -3,7 +3,7 @@
 #include <unistd.h>
 #include <cstring>
 
-TCPServer::TCPServer(int port) : port(port), serverFd(-1), clientFd(-1), running(false) {}
+TCPServer::TCPServer(uint16_t port) : port(port), serverFd(-1), clientFd(-1), running(false) {}
 
 TCPServer::~TCPServer() {
     stop();
