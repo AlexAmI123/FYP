@@ -27,7 +27,7 @@ Semaphore CameraProvider::performingReset = Semaphore(1);
 bool CameraProvider::resetPending = false;
 #endif
 
-CameraProvider::CameraProvider()
+CameraProvider::CameraProvider() :
     tcpServerUpper(8081), // Port for the upper camera images
     tcpServerLower(8082), // Port for the lower camera images
     whichCamera(Thread::getCurrentThreadName() == "Upper" ?  CameraInfo::upper : CameraInfo::lower),
