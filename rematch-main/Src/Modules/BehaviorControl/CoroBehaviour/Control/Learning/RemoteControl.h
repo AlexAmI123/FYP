@@ -1,7 +1,7 @@
 /**
 * @file RemoteControl.h
 *
-* This file implements a behaviour that ainms to control the robot remotely
+* This file implements a behaviour that aims to control the robot remotely
 */
 
 #pragma once

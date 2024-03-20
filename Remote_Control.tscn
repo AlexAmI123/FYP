@@ -3,7 +3,8 @@
 [ext_resource type="Script" path="res://Remote_Control.gd" id="1_3h85n"]
 [ext_resource type="Script" path="res://CameraFeedTop.gd" id="1_xww07"]
 [ext_resource type="Script" path="res://CameraFeedBottom.gd" id="2_tg2fx"]
-[ext_resource type="Script" path="res://TCPSender.gd" id="3_vcq6s"]
+
+[sub_resource type="GDScript" id="GDScript_may7p"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_3h85n")
@@ -21,4 +22,4 @@ script = ExtResource("2_tg2fx")
 metadata/_edit_use_anchors_ = true
 
 [node name="TCPSender" type="Node" parent="."]
-script = ExtResource("3_vcq6s")
+script = SubResource("GDScript_may7p")
