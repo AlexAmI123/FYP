@@ -7,6 +7,9 @@
  *
  * @author Colin Graf
  * @author Thomas Röfer
+ * 
+ * Any changes made for the purpose of the 2024 Final Year Project are commented as:
+ * // Project Contributions here
  */
 
 #include "CameraProvider.h"
@@ -28,6 +31,7 @@ bool CameraProvider::resetPending = false;
 #endif
 
 CameraProvider::CameraProvider() :
+    // Project Contributions here
     tcpServerUpper(8081), // Port for the upper camera images
     tcpServerLower(8082), // Port for the lower camera images
     whichCamera(Thread::getCurrentThreadName() == "Upper" ?  CameraInfo::upper : CameraInfo::lower),
@@ -122,7 +126,7 @@ void CameraProvider::update(CameraImage& theCameraImage)
 void CameraProvider::update(JPEGImage& jpegImage)
 {
   jpegImage = theCameraImage;
-
+  // Project Contribution Here
   // Retrieve the JPEG data
   const std::vector<unsigned char>& jpegData = jpegImage.getAllocator();
 

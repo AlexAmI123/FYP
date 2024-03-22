@@ -7,10 +7,13 @@
  *
  * @author Colin Graf
  * @author Thomas Röfer
+ * 
+ * Any changes made for the purpose of the 2024 Final Year Project are commented as:
+ * // Project Contributions here
  */
 
 #pragma once
-
+// Project Contributions here
 #include "TCPServer.h"
 #include "Platform/Camera.h"
 #include "Platform/Semaphore.h"
