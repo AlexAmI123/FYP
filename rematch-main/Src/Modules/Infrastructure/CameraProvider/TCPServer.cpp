@@ -73,11 +73,11 @@ void TCPServer::send(const std::vector<unsigned char>& data) {
     }
 }
 
-// Accepts incoming client connections. This method runs in a separate thread and continuously
+// Accepts incoming client connections.
 // accepts new connections until the server is stopped. It handles one connection at a time.
 void TCPServer::acceptConnections() {
     while (running) {
-        // Accept a new connection. This call is blocking and waits for a new client to connect.
+        // Accept a new connection.
         clientFd = accept(serverFd, nullptr, nullptr);
 
         // If accepting a client connection fails, stop the server.
