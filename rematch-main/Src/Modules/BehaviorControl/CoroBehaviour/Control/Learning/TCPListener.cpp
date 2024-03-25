@@ -63,7 +63,7 @@ void TCPListener::listenerThread(TCPListener* listener, uint16_t port) {
         exit(EXIT_FAILURE);
     }
 
-    // Accept a connection (blocking call). The client_socket represents the connection to the client.
+    // Accept a connection. The client_socket represents the connection to the client.
     if ((client_socket = accept(server_fd, (struct sockaddr*)&address, (socklen_t*)&addrlen)) < 0) {
         perror("accept");
         exit(EXIT_FAILURE);
